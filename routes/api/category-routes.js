@@ -33,7 +33,6 @@ router.get('/:id', (req, res) => {
       model: Product,
       attributes: ["product_name", "price", "stock", "category_id"  ] 
     }]
-  )
 });
 
 router.post('/', (req, res) => {
