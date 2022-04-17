@@ -17,6 +17,10 @@ router.get("/", (req, res) => {
      {
        model: Tag,
        attributes: ["tag_name"]
+     },
+     {
+       model: ProductTag,
+       attributes: ["product_id"]
      }
    ]
   })
@@ -31,7 +35,7 @@ router.get("/", (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  Product.findOne({
+  Product.findByPk({
     where: { id: req.params.id},
     attributes: ["id", "product_name", "price", "stock", "category_id"],
     include: [
@@ -42,6 +46,10 @@ router.get('/:id', (req, res) => {
       {
         model: Tag,
         attributes: ["tag_name"]
+      },
+      {
+        model: ProductTag,
+        attributes: ["product_id"]
       }
     ]
    })
@@ -73,7 +81,11 @@ router.post('/', (req, res) => {
       {
         model: Tag,
         attributes: ["id"]
-      }
+      },
+      // {
+      //   model: ProductTag,
+      //   attributes: ["product_id"]
+      // }
     ]
   )
     .then(product => {
