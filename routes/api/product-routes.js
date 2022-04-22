@@ -18,10 +18,10 @@ router.get("/", (req, res) => {
        model: Tag,
        attributes: ["tag_name"]
      },
-     {
-       model: ProductTag,
-       attributes: ["product_id"]
-     }
+    //  {
+    //    model: ProductTag,
+    //    attributes: ["product_id"]
+    //  }
    ]
   })
   .then(dbProductData => res.json(dbProductData))
@@ -58,8 +58,7 @@ router.get('/:id', (req, res) => {
        console.log(err);
        res.status(500).json(err);
      });
-  })
-});
+  });
 
 // create new product
 router.post('/', (req, res) => {
@@ -71,23 +70,11 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(
-    {
+  Product.create({
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    },
-    include: [
-      {
-        model: Tag,
-        attributes: ["id"]
-      },
-      // {
-      //   model: ProductTag,
-      //   attributes: ["product_id"]
-      // }
-    ]
-  )
+  })
     .then(product => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -157,7 +144,7 @@ router.delete('/:id', (req, res) => {
   Product.destroy({ 
     where: { id: req.params.id}
   })
-  .then(dbProductData) => {
+  .then(dbProductData => {
     if (!dbProductData) {
       res.status(404).json({ message: "No product found with this id" });
       return;

@@ -33,8 +33,6 @@ Product.init(
       validate: {
         isNumeric: true
       }
-      //default value of 100 is
-      
     },
     category_id: {
       type: DataTypes.INTEGER,
