@@ -38,19 +38,11 @@ router.get('/:id', (req, res) => {
       {
         model: Category, 
       },
-      // {
-      //   model: "Category",
-      //   attributes: ["category_name"]
-      // },
       {
         model: Tag,
         through: ProductTag, 
         attributes: ["tag_name"]
       },
-      // {
-      //   model: "ProductTag",
-      //   attributes: ["product_id"]
-      // }
     ]
    })
    .then(dbProductData => res.json(dbProductData))
