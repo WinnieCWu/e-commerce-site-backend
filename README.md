@@ -7,7 +7,7 @@ This app builds the back-end for my e-commerce platforms, which enables me to co
 Utilizes the latest technologies, such as Sequelize and MySQL2 to connect my Express.js to a MySQL database, dotenv package to use environmental variables to store my sensitive data, and Insomnia to test the app.
 
 ## What it looks like
-Link to walkthrough video:
+Link to walkthrough video: https://drive.google.com/file/d/1E91gW-6sTRZAzQ7AEPH8u-f0_SV8Quno/view
 Screenshots:
 ![put-api-products-3](https://user-images.githubusercontent.com/95206117/164938446-8cc2334d-a1b2-4869-8ce7-717b5f982b4d.JPG)
 ![post-api-tags](https://user-images.githubusercontent.com/95206117/164938452-2d1f98c2-f538-4064-8abd-28d67d45004d.JPG)
